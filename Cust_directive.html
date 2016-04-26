@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="mainCtrl">
+<div ng-transclude ng-click="showForm()"></div>
+    <form class="sr-only" ng-submit="saveEdit()">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="tempVal" ng-blur="hideForm()">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Save</button>
+                    <button class="btn btn-default" type="button" ng-click="hideForm()">Cancel</button>
+                </span>
+        </div>
+    </form>
+</body>
+</html>

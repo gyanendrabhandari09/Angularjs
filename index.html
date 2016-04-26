@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script type="text/javascript" src="js/router.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+    <div class="container-fluid">
+        <div class="container container_size">
+            <div class="row">
+                <div class="col-md-12">
+                    <form ng-submit="submit()" novalidate>
+                        <input type="text" ng-model="name1" class="input_text" placeholder="Please input a search Query" required highlight-on-error />&nbsp;
+                        <button type="submit" class="btn btn-danger" ng-click="clear()">clear</button>
+                        <button type="submit" class="btn btn-primary" ng-click="search()">Search</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div ng-repeat="data in users_Data |filter:{name:name1}| limitTo:4"  ng-class="{'pending-Male': data.gender=='M','pending-Female': data.gender=='F'}" class="result_box"  ng-hide="name1 == ''">
+                    <table>
+                        <h3>{{data.name}}</h3><br>
+                        <b>ID # :<b><tr>{{data.id}}</tr></b><br>
+                        <b>Gender:</b>&nbsp; <tr>{{data.gender}}</tr></b><br>
+                        <b>City:</b>&nbsp;<tr>{{data.name}}</tr></b>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
